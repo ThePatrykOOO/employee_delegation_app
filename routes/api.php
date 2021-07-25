@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/employee', [\App\Http\Controllers\EmployeeController::class, 'store']);
+Route::post('/delegations', [\App\Http\Controllers\DelegationController::class, 'store']);
+Route::get('/delegations/employee/{employeeId}', [\App\Http\Controllers\DelegationController::class, 'listDelegationsByEmployee']);
